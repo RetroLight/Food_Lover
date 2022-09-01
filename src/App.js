@@ -3,12 +3,14 @@ import './App.css';
 import {useEffect} from "react";
 import {Switch, Route} from 'react-router-dom';
 import WebFont from 'webfontloader';
+import {compose} from "redux";
+import {withRouter} from "react-router";
 
 import HomePage from "./pages/homePage/HomePage.component";
 import RecipesPage from "./pages/recipesPage/RecipesPage.component";
 import RecipeDetailsPage from "./pages/recipeDetailsPage/RecipeDetailsPage";
 
-function App() {
+const App = ({match}) => {
     useEffect(() => {
         WebFont.load({
             google: {
@@ -18,19 +20,21 @@ function App() {
     }, []);
 
     return (
-    <div className="App">
-      <header className="App-header">
-          <div>Food Lover</div>
-      </header>
-        <div className='appContainer'>
-            <Switch>
-                <Route exact path='/' component={HomePage}/>
-                <Route exact path='/recipes' component={RecipesPage}/>
-                <Route exact path='/recipeDetails' component={RecipeDetailsPage}/>
-            </Switch>
+        <div className="App">
+            <header className="App-header">
+                <div>Food Lover</div>
+            </header>
+            <div className='appContainer'>
+                <Switch>
+                    <Route exact path='/' component={HomePage}/>
+                    <Route exact path='/recipes/:recipeType' component={RecipesPage}/>
+                    <Route path='/recipeDetails' component={RecipeDetailsPage}/>
+                </Switch>
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
-export default App;
+export default compose(
+    withRouter
+)(App);

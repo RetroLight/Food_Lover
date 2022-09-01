@@ -17,6 +17,7 @@ export const ButtonStyles = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
+  height: inherit;
 
   &:hover {
     background: #07aff7;

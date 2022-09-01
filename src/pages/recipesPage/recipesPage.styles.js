@@ -12,6 +12,7 @@ export const RecipesContainer = styled.div`
     text-align: center;
     font-size: 24px;
     width: 100%;
+    text-transform: capitalize;
   }
 `
 

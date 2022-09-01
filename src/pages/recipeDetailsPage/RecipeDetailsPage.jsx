@@ -1,19 +1,19 @@
 import React from "react";
 import {RecipeDetailsContainer} from "./recipeDetailsPage.styles";
+import RecipeDetailsItem from "../../components/recipeDetails/RecipeDetails.component";
+import {connect} from "react-redux";
 
 
-const RecipeDetailsPage = () => {
+const RecipeDetailsPage = ({currentItem}) => {
     return (
         <RecipeDetailsContainer>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
-            <div>RecipeDetailsPage</div>
+            <RecipeDetailsItem item={currentItem}/>
         </RecipeDetailsContainer>
     )
 }
 
-export default RecipeDetailsPage;
+export const mapStateToProps = (state) => ({
+    currentItem: state.recipesRed.currentRecipe.recipe
+});
+
+ export default connect(mapStateToProps)(RecipeDetailsPage);

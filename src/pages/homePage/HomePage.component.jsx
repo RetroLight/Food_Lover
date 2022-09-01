@@ -17,7 +17,7 @@ const HomePage = ({factsCollection, fetchFactsStart, fetchRecipesStart}) => {
         fetchFactsStart()
     },[])
 
-    const onQuaryChange = (event) => {
+    const onQueryChange = (event) => {
         setQuary(event.target.value);
     }
 
@@ -30,10 +30,10 @@ const HomePage = ({factsCollection, fetchFactsStart, fetchRecipesStart}) => {
             <MainHeading>Что хотите приготовить?</MainHeading>
             <Form>
                 <InputContainer>
-                    <CustomInput handleChange={onQuaryChange} type='search'/>
+                    <CustomInput handleChange={onQueryChange} type='search'/>
                 </InputContainer>
-                <RecipesPageLink to='recipes'>
-                    <CustomButton btnLabel='Поиск' ml={10} onSubmit={searchHandler}/>
+                <RecipesPageLink to={`recipes/${query}`}>
+                    <CustomButton btnLabel='Поиск' ml={10} onClick={searchHandler}/>
                 </RecipesPageLink>
             </Form>
             <HomePageContent>

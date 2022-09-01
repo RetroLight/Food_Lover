@@ -5,4 +5,5 @@ export const RecipeDetailsContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   color: #000;
+  font-size: 26px;
 `
